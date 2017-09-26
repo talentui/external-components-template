@@ -61,7 +61,7 @@ export default class Grid extends Component {
         genUID={this.genId}
         onMessage={this.handleMessage}
         createComponent = {this.createComponent}
-        previewUrl='#/gview'
+        previewUrl='#/preview'
         />
     );
   }
