@@ -10,7 +10,9 @@
         "analysis": "analysis=on npm run build",
         "debug": "node --inspect --debug-brk node_modules/.bin/webpack",
         "debug-dev": "DEV_SERVER=on node --inspect --debug-brk node_modules/.bin/webpack-dev-server",
-        "test": "jest"
+        "test": "jest",
+        "build-component":"webpack --config ./webpack.componet.config.js",
+        "build-dll":"webpack --config ./webpack.dll.config.js"
     },
     "repository": {
         "type": "git",
@@ -30,9 +32,12 @@
     "dependencies": {
         "@beisen/grid-page-builder": "^3.0.6",
         "@beisen/talent-ui-bootstrap": "^1.0.14",
+        "@beisen/talent-ui-component-webpack-config": "^1.0.3",
         "@beisen/talent-ui-dll-foundation": "^1.0.13",
+        "@beisen/talent-ui-dll-webpack-config": "^1.1.5",
         "@beisen/talent-ui-helper": "^1.0.6",
         "@beisen/talent-ui-webpack-config": "^2.2.1",
+        "lodash": "^4.17.4",
         "react": "^15.6.2",
         "react-dom": "^15.6.2",
         "redux-actions": "^2.2.1",
