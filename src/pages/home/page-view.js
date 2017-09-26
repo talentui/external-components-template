@@ -1,46 +1,109 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as actions from "&/reducers/home/actions";
-import { bindActionCreators } from "redux";
-import "./home.scss";
-import { Link } from "react-router-dom";
-import warning from '@beisen/talent-ui-helper/lib/utils/warning';
+import React, { Component } from 'react';
+import GridWorkspace, { TubState } from '@beisen/grid-page-builder';
+// import '@beisen/grid-page-builder/style.css';
+import TemplateTwoColumn from '../../components/PageTemplates/TemplateTwoColumn';
+import FreeLayout from '../../components/PageTemplates/FreeLayout'
+import components from '../../components/ElementCollection';
+import propsComponents from '../../components/PropsCollection';
+import { v1 } from 'uuid';
 
-@connect(
-    state => {
-        return {
-            data: state.home
-        };
-    },
-    dispatch => {
-        return bindActionCreators(actions, dispatch);
-    }
-)
-export default class Home extends Component {
-    componentDidMount() {
-        this.counter = setInterval(() => {
-            let { increase } = this.props;
-            increase();
-        }, 1000);
-    }
+export default class Grid extends Component {
 
-    componentWillUnmount() {
-        clearInterval(this.counter);
-    }
+  constructor(props, contents) {
+    super();
+    this.state = { tubState: TubState.create({
+      pageSettings:{
+        title: 'TalentUI-北森',
+        editableData: {},
+        layout: 'grid'
+    }}) };
+    this.availableComponent = this.genAvailableComponent()
+  }
 
-    render() {
-        let { data, increase } = this.props;
+  genAvailableComponent() {
+    return [{
+      name: '容器组件',
+      id: v1(),
+      components: [{
+        name: 'ComponentHolder',
+        id: v1()
+      }]
+    },{
+      name: '外部组件',
+      id: v1(),
+      components: [{
+        name: 'ITalentWiget',
+        displayTitle: '百毒',
+        id: v1()
+      }]
+    }, {
+      name: '动态组件',
+      id: v1(),
+      components: [{
+        name: 'FeedTask',
+        id: v1(),
+        displayTitle: '任务列表'
+      }]
+    },{
+      name: '初始组件',
+      components: [{
+        name: 'ButtonGroup',
+        id: v1(),
+        displayTitle: '按钮组'
+      },{
+        name: 'Header',
+        id: v1(),
+        displayTitle: '标题',
+        gridInitSize:{w:3,h:20}
+        
+      },{
+        name: 'Text',
+        id: v1(),
+        displayTitle: '文本展示',
+        gridInitSize:{w:5,h:10}
+      }]
+    }]
+  }
 
-        return (
-            <div onClick={increase} className="home-page">
-                <div>
-                    <div> 你是否看到了时间的流失：{data} </div>
-                    <Link to="/home/love">
-                        爱自己，爱这个世界
-                    </Link>
-                </div>
+  handleChange = (tubState) => {
+    this.setState({ tubState })
+  }
 
-            </div>
-        );
-    }
+  handleSave = (tubState) => {
+    window.localStorage.uibuilder = JSON.stringify(tubState);
+    this.state.tubState.setSavedState();
+    debugger;
+  }
+
+  renderComponent = (Comp, editableData, mergeProps /* */) => {
+    return <div>1111<Comp data={editableData} {...mergeProps} /></div>
+  }
+
+  genId(data) {
+    console.log(data);
+    return v1();
+  }
+
+  createComponent(component, data){
+    return component
+  }
+
+  render() {
+
+    return (
+      <GridWorkspace
+        tubState={this.state.tubState}
+        template={FreeLayout}
+        components={components}
+        propsComponents={propsComponents}
+        availableComponents={this.availableComponent}
+        onChange={this.handleChange}
+        onSave={this.handleSave}
+        genUID={this.genId}
+        onMessage={this.handleMessage}
+        createComponent = {this.createComponent}
+        previewUrl='#/gview'
+        />
+    );
+  }
 }

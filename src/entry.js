@@ -1,7 +1,5 @@
  //你在entry.js中
  import React, { Component } from "react";
- import Header from "&/components/common/header";
- import Footer from "&/components/common/footer";
 
  /**
  * 必需！！
@@ -13,11 +11,9 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <Header name='hehe' title={3} />
                 <div className="content-wrapper">
                     {this.props.children}
                 </div>
-                <Footer />
             </div>
         );
     }
