@@ -17,5 +17,5 @@ export default [
         id:v1()
       }
     })
-  },
+  }
 ];
