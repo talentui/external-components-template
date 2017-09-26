@@ -1,12 +1,7 @@
 /**
  * 在这个文件中输出所有的组件
  * **/
-import React from 'react'
-class ComponentHolder extends React.Component{
-  render(){
-    return <div>name</div>
-  }
-}
+import Button from './Button/index'
 export default {
-  ComponentHolder
+  Button
 }

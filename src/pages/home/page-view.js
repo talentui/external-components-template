@@ -6,6 +6,7 @@ import FreeLayout from '../../components/PageTemplates/FreeLayout'
 import components from '../../components/ElementCollection';
 import propsComponents from '../../components/PropsCollection';
 import { v1 } from 'uuid';
+import componentListData from './componentListData'
 
 export default class Grid extends Component {
 
@@ -21,48 +22,7 @@ export default class Grid extends Component {
   }
 
   genAvailableComponent() {
-    return [{
-      name: '容器组件',
-      id: v1(),
-      components: [{
-        name: 'ComponentHolder',
-        id: v1()
-      }]
-    },{
-      name: '外部组件',
-      id: v1(),
-      components: [{
-        name: 'ITalentWiget',
-        displayTitle: '百毒',
-        id: v1()
-      }]
-    }, {
-      name: '动态组件',
-      id: v1(),
-      components: [{
-        name: 'FeedTask',
-        id: v1(),
-        displayTitle: '任务列表'
-      }]
-    },{
-      name: '初始组件',
-      components: [{
-        name: 'ButtonGroup',
-        id: v1(),
-        displayTitle: '按钮组'
-      },{
-        name: 'Header',
-        id: v1(),
-        displayTitle: '标题',
-        gridInitSize:{w:3,h:20}
-        
-      },{
-        name: 'Text',
-        id: v1(),
-        displayTitle: '文本展示',
-        gridInitSize:{w:5,h:10}
-      }]
-    }]
+    return componentListData;
   }
 
   handleChange = (tubState) => {
@@ -89,7 +49,6 @@ export default class Grid extends Component {
   }
 
   render() {
-
     return (
       <GridWorkspace
         tubState={this.state.tubState}
