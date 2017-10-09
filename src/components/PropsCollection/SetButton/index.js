@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Input from'./input'
 import Select from './select'
-// import _ from 'lodash';
 
 const buttonTypes = [{
     value: 'btn-default',

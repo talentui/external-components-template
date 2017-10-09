@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GridWorkspace, { TubState } from '@beisen/grid-page-builder';
 // import '@beisen/grid-page-builder/style.css';
-import TemplateTwoColumn from '../../components/PageTemplates/TemplateTwoColumn';
+import TemplateTwoColumn from '../../components/PageTemplates/index';
 import FreeLayout from '../../components/PageTemplates/FreeLayout'
 import components from '../../components/ElementCollection';
 import propsComponents from '../../components/PropsCollection';

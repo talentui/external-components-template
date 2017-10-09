@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import reactdom from 'react-dom'
-
+// import reactdom from 'react-dom'
+import './index.scss'
 export default class Button extends Component {
   static canBroadcast = true;
 
