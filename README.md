@@ -51,4 +51,5 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 # TodoList :
 1. component打包过程中，样式问题
 2. 组件打包发版成功后，注册到pageBuilder内时需要提供的信息：projectName, 依赖？
-3. 
+3. talent-ui-dll-webpack-config 添加对dllList参数的支持，添加dllReferencePlugin
+4. talent-ui-component-webpack-cofig添加jsx支持 ？ 
