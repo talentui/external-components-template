@@ -1,7 +1,7 @@
 {
-    "name": "talent-ui-template",
-    "version": "1.0.1",
-    "description": "use talentui-2.0",
+    "name": "upaas-component-demo3",
+    "version": "2.1.0",
+    "description": "page-builder组件开发 调试 打包 dll发版项目",
     "main": "index.js",
     "scripts": {
         "start": "friendly=on  webpack-dev-server",
@@ -24,8 +24,8 @@
     },
     "maintainers": [
         {
-            "name": "yangfengchu",
-            "email": "yangfengchu@beisen.com"
+            "name": "lihe3",
+            "email": "lihe3@beisen.com"
         }
     ],
     "license": "MIT",
