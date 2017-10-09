@@ -1,7 +1,7 @@
 __tests__
 .awcache
 /extras
-/node_modules/
+node_modules
 /src/
 .gitignore
 .npmignore
