@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Input from'./input'
 import Select from './select'
-import _ from 'lodash';
+// import _ from 'lodash';
 
 const buttonTypes = [{
     value: 'btn-default',
@@ -59,7 +59,7 @@ class SetButton extends Component {
 
     handleAddButton() {
         let {update, data} = this.props;
-        let eventKey = _.uniqueId('SetButton-vent-');
+        let eventKey = Date.now();
         let text = '按钮' + (data.length + 1);
         //  regtype 1-add, 2-update 3-delete
         update([...data, {
