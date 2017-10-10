@@ -19,7 +19,7 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 
 1. 组件开发和调试，包括**功能组件，属性组件，页面模版**
 2. 打包为dll
-3. dll发版
+3. dll发版，并同步线上资源
 4. 注册到pageBuilder项目中
 
 下面具体阐述下每个流程及其需要遵守的开发规范
@@ -49,7 +49,9 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 
 ## 发版
 
-修改`package.json`内对应的信息，如`name` `version` ,执行发版
+修改`package.json`内对应的信息，如`name` `version` ,执行发版。
+
+`dll`虽然以`package`的形式发布，但是其资源在pageBuilder页面中是单独引入的，所以开发者需要将`dll`资源同步到服务器上，并提供一个可以访问的远程地址。
 
 ## 注册
 
@@ -58,6 +60,8 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 1. 项目名称，如`upaas`
 2. 发布的`dll`包名称
 3. 样式文件远程地址 
+4. `dll` 资源远程地址
+
 # 注意事项：
 
 ## 1. 静态资源及css
@@ -65,6 +69,8 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 在组件开发中，组件内引用的静态资源，如图片等，需要开发者以绝对路径的形式将其引入，如一个远程cdn地址。
 
 至于css，打包完成后，在`src/venders/项目名称/dist/`下会有一个`style.css`文件，开发者需要将这个样式文件放在远程服务器上，并在注册项目组件的时候将cdn地址连同其他信息一同提供给`pageBuilder`
+
+## 2. 发版后的组件更新
 
 
 # TodoList :
