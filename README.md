@@ -45,6 +45,7 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 如果打包成功，会看到在`src/veners/`下看到对应的项目名称文件夹及其里面的组件代码，以及根目录下的`dist`下的`dll`代码
 
 > 执行`yarn build-dll`之后，实际上webpack会执行两次打包，一次是将所有开发的组件代码作为组件的方式打包，生成到`src/verders/`目录下，然后，将打包出来的组件代码，打包为一个dll，注册到pageBuilder项目中去。第一次打包的目的，是保证在以后组件更新和发版的过程中，`manifest.json`文件内，组件代码目录保持不变。
+
 ## 发版
 
 修改`package.json`内对应的信息，如`name` `version` ,执行发版
