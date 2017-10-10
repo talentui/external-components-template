@@ -12,3 +12,5 @@ webpack.conponent.config.js
 webpack.config.js
 webpack.dll.config.js
 yarn.lock
+/talent-ui-dll-parser-util
+/talent-ui-dll-webpack-config

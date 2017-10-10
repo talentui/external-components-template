@@ -5,3 +5,4 @@
 /dist
 yarn.lock
 /talent-ui-dll-webpack-config
+talent-ui-dll-parser-util
