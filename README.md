@@ -44,12 +44,23 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 
 如果打包成功，会看到在`src/veners/`下看到对应的项目名称文件夹及其里面的组件代码，以及根目录下的`dist`下的`dll`代码
 
+> 执行`yarn build-dll`之后，实际上webpack会执行两次打包，一次是将所有开发的组件代码作为组件的方式打包，生成到`src/verders/`目录下，然后，将打包出来的组件代码，打包为一个dll，注册到pageBuilder项目中去。第一次打包的目的，是保证在以后组件更新和发版的过程中，`manifest.json`文件内，组件代码目录保持不变。
 ## 发版
 
 修改`package.json`内对应的信息，如`name` `version` ,执行发版
 
+# 注意事项：
+
+## 1. 静态资源及css
+
+在组件开发中，组件内引用的静态资源，如图片等，需要开发者以绝对路径的形式将其引入，如一个远程cdn地址。
+
+至于css，打包完成后，在`src/venders/项目名称/dist/`下会有一个`style.css`文件，开发者需要将这个样式文件放在远程服务器上，并在注册项目组件的时候将cdn地址连同其他信息一同提供给`pageBuilder`
+
+
 # TodoList :
 1. component打包过程中，样式问题
 2. 组件打包发版成功后，注册到pageBuilder内时需要提供的信息：projectName, 依赖？
-3. talent-ui-dll-webpack-config 添加对dllList参数的支持，添加dllReferencePlugin
-4. talent-ui-component-webpack-cofig添加jsx支持 ？ 
+3. ~~talent-ui-dll-webpack-config 添加对dllList参数的支持，添加dllReferencePlugin--~~
+4. talent-ui-component-webpack-cofig添加jsx支持 
+5. 将`parse-dll`部分的逻辑抽离出来，单独发版
