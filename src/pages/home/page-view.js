@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import GridWorkspace, { TubState } from '@beisen/grid-page-builder';
 // import '@beisen/grid-page-builder/style.css';
-import TemplateTwoColumn from '../../components/PageTemplates/index';
-import FreeLayout from '../../components/PageTemplates/FreeLayout'
+import PageTemplate from '../../components/PageTemplates/index';
 import components from '../../components/ElementCollection';
 import propsComponents from '../../components/PropsCollection';
 import { v1 } from 'uuid';
@@ -52,7 +51,7 @@ export default class Grid extends Component {
     return (
       <GridWorkspace
         tubState={this.state.tubState}
-        template={FreeLayout}
+        template={PageTemplate}
         components={components}
         propsComponents={propsComponents}
         availableComponents={this.availableComponent}

@@ -1,7 +1,8 @@
 
 import React, {Component, PropTypes} from 'react';
 import Elements from '../../components/ElementCollection';
-import FreeLayout from '../../components/PageTemplates/FreeLayout'
+// import FreeLayout from '../../components/PageTemplates/FreeLayout'
+import PageTemplate from '../../components/PageTemplates/index';
 import {Viewer, TubState} from '@beisen/grid-page-builder';
 // import '@beisen/grid-page-builder/style.css';
 
@@ -31,7 +32,7 @@ export default class View extends Component{
                 tubState={this.state.tubState}
                 components={Elements} 
                 onChange={(tubState) => {this.setState({tubState})}}
-                template={FreeLayout}
+                template={PageTemplate}
             />
     }
 }
