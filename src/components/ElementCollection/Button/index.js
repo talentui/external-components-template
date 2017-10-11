@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import reactdom from 'react-dom'
+// import { SketchPicker } from 'react-color'
 import './index.scss'
 export default class Button extends Component {
   static canBroadcast = true;
