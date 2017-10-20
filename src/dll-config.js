@@ -9,5 +9,5 @@
  * **/
 module.exports = {
   projectName:'upaas',
-  dllList: ['@beisen/talent-ui-dll-foundation']
+  dllList: ['@talentui/dll-react', '@talentui/dll-ethos']
 }
