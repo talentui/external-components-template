@@ -79,5 +79,13 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 3. ~~talent-ui-dll-webpack-config 添加对dllList参数的支持，添加dllReferencePlugin--~~
 4. talent-ui-component-webpack-cofig添加jsx支持 
 5. ~~将`parse-dll`部分的逻辑抽离出来，单独发版~~
-6. pageBuilder运行态也需要放到`ux-page-builder`项目中
-7. ux-page-builer添加预览和运行态页面
+6. ~~pageBuilder运行态也需要放到`ux-page-builder`项目中~~
+7. ~~ux-page-builer添加预览和运行态页面~~
+8. 打包dll的过程中，依赖中的样式问题？
+流程：
+9. ~~dll-parser README.md~~
+10. dll-webpack-config 样式的问题
+11. ~~打包@talentui/ethos 组件~~
+
+
+
