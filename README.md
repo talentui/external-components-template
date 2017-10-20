@@ -85,6 +85,7 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 
 ## 2. 发版后的组件更新
 
+原则上，在后期更新组件的时候，并不需要将对应的npm更新，只需要将服务器上的dll文件更新至最新即可。
 
 # TodoList :
 1. component打包过程中，样式问题
