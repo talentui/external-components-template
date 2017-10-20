@@ -7,3 +7,4 @@ yarn.lock
 /talent-ui-dll-webpack-config
 /talent-ui-dll-parser-util
 /talent-ui-webpack-config
+.DS_Store
