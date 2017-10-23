@@ -85,7 +85,17 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 
 ## 2. 发版后的组件更新
 
-原则上，在后期更新组件的时候，并不需要将对应的npm更新，只需要将服务器上的dll文件更新至最新即可。
+在更新组件的时候，因为有的更新涉及到依赖关系的更新，所里这里分为两种情况，两种情况下的更新流程稍显不一样
+
+* 涉及到依赖关系改变的更新
+
+依赖关系的改变，主要体现在打包后`manifest.json`文件的变化，如：增加了新的依赖，或者减少了依赖。在增加新依赖的情况下，更新dll包的时候，除了将dll包更新发版，和同步服务器资源外，还要联系`pageBuilder`，更新发版。
+
+主要是因为`webpack`在打包构建的时候，需要依赖新的`manifest.json`文件查找依赖关系。否则访问不到新增加的依赖。
+
+* 不涉及到依赖关系改变的更新
+
+如果在更新中，不涉及到依赖关系的更新，只有组件代码或者UI方面的更新，则只需要将打包后的`dll`代码同步到线上服务器，原则上是不需要将`dll`包发版更新的。当然，你也可以选择发布一个新版本的`npm包`
 
 # TodoList :
 1. component打包过程中，样式问题
@@ -108,7 +118,5 @@ pageBuilder单独的应用基本开发完成，即**ux-page-builder**，本项�
 打包upaas-component组件时遇到的问题：
 * 组件部分样式丢失？
 * MyMetting组件的bug
-* 属性组件PlanCompletionRateSetting的问题 Emitter is not constructor 
-* 
-
+* ~~属性组件PlanCompletionRateSetting的问题 Emit~er is not constructor~~
 
