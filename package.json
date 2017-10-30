@@ -5,21 +5,15 @@
     "main": "index.js",
     "scripts": {
         "start": "friendly=on  webpack-dev-server",
-        "build": "rm -rf dist/ && check=on webpack --config ./webpack.component.config.js",
-        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack ./webpack.component.config.js",
+        "build": "rm -rf dist/ && check=on webpack --config ./webpack.library.config.js",
+        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack ./webpack.library.config.js",
         "analysis": "analysis=on npm run build",
         "debug": "node --inspect --debug-brk node_modules/.bin/webpack",
         "debug-dev": "DEV_SERVER=on node --inspect --debug-brk node_modules/.bin/webpack-dev-server",
         "test": "jest"
     },
-    "repository": {
-        "type": "git",
-        "url": "http://gitlab.beisencorp.com/ux/generator-talent-ui-2.0"
-    },
-    "author": {
-        "name": "UPAAS FED TEAM",
-        "email": "liguoming@beisen.com"
-    },
+    "repository": "http://gitlab.beisencorp.com/ux/generator-talent-ui-2.0",
+    "author": "UPAAS FED TEAM <liguoming@beisen.com>",
     "maintainers": [
         {
             "name": "lihe3",
@@ -31,6 +25,7 @@
         "@beisen/beisen-scroll-bar": "^0.0.1-59",
         "@beisen/grid-page-builder": "^3.0.6",
         "@beisen/loading": "^0.1.41",
+        "@beisen/talent-ui-bootstrap": "^1.0.15",
         "@beisen/talent-ui-helper": "^1.0.6",
         "@talentui/bootstrap-react": "^1.0.0",
         "@talentui/component-webpack-config": "^1.0.0",
