@@ -9,3 +9,4 @@ yarn.lock
 /talent-ui-webpack-config
 .DS_Store
 /webpack-library-config
+/webpack-config
