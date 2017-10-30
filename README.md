@@ -9,24 +9,15 @@
 2. 由于组件bug而导致的问题，必须将项目重新发版上线，哪怕是一个小小的UI bug
 3. 在upaas项目开发中，有其他的产品线也想用pageBuilder展示他们的组件，构建他们自己页面，那他们必须要在upaas项目中开发组件。这显然是不合理的。
 
+![](http://note.youdao.com/yws/api/personal/file/WEB8f4b6f0eae43bf02a4338b8c141bce68?method=download&shareKey=85686db2bf65f63188108e95ffc1c8ed)
+
 上面几个问题的背后，似乎都聚焦在同一个点上：组件和项目是一起构建的。如果将这个问题解决掉，让组件单独开发，单独构建，单独发版，上面的问题似乎都迎刃而解。
 
 # 流程
 
-优化之后的 `开发` 和 `组件后续更新` 流程如下：
+优化之后，将组件开和项目开发解耦，提高维护性，方便组件后续的更新和发版, 流程如下：
 
-```
-graph TD
-开发组件-->构建组件
-构建组件-->资源同步到cdn
-资源同步到cdn-->注册组件信息
-注册组件信息-->将组件资源引入到pageBuilder页面
-将组件资源引入到pageBuilder页面-->拖拽构建页面
-
-更新组件代码-->重新构建并生成新版本的代码资源
-重新构建并生成新版本的代码资源-->更新paegBuiilder页面组件资源文件
-更新paegBuiilder页面组件资源文件--> 更新后的组件
-```
+![](http://note.youdao.com/yws/api/personal/file/WEB502f6cc8286098cb8c66afb542afdaed?method=download&shareKey=8081871980bd27e35cf9d788fa66f6b6)
 
 **注意**
 1.  `pageBuilder`应用就是单独一个`pageBuilder`项目，项目内不包含任何的组件代码，所有的组件都是通过外部引入的的方式，引入到项目中
@@ -63,3 +54,14 @@ graph TD
 ## 4. 将组件资源引入到pageBuilder应用
 
 我们是以`UMD`的方式将组件打包，`js` 资源以 `script` 标签的的形式引入到pageBuilder页面，然后通过全局变量访问该产品线下的组件数据.
+
+
+
+## 问题
+1. 新的打包方案是否需要区分生产和开发环境，打包出的文件带版本号，实现版本控制
+2. 在pageBuilder内如何知道从哪个全局变量下取组件，后端从页面打值？
+3. 如果在pageBuilder中需要同时展示两个应用下开发的组件 如upaas 和薪酬，how?
+4. umd 命名规范  保证唯一性
+5. npm version api 
+6. 模版项目的问题：创建一个模版项目，并接入ci  ci触发hook的问题
+7. 单个组件的版本控制问题，回滚问题
