@@ -5,14 +5,12 @@
     "main": "index.js",
     "scripts": {
         "start": "friendly=on  webpack-dev-server",
-        "build": "rm -rf dist/ && check=on webpack",
-        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack",
+        "build": "rm -rf dist/ && check=on webpack --config ./webpack.component.config.js",
+        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack ./webpack.component.config.js",
         "analysis": "analysis=on npm run build",
         "debug": "node --inspect --debug-brk node_modules/.bin/webpack",
         "debug-dev": "DEV_SERVER=on node --inspect --debug-brk node_modules/.bin/webpack-dev-server",
-        "test": "jest",
-        "build-component": "webpack --config ./webpack.componet.config.js",
-        "build-dll": "webpack --config ./webpack.componet.config.js && webpack --config ./webpack.dll.config.js && cp -R ./src/venders/upaas/dist/style.css ./dist/"
+        "test": "jest"
     },
     "repository": {
         "type": "git",
