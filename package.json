@@ -6,7 +6,7 @@
     "scripts": {
         "start": "friendly=on  webpack-dev-server",
         "build": "rm -rf dist/ && check=on webpack --config ./webpack.library.config.js",
-        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack ./webpack.library.config.js",
+        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack --config ./webpack.library.config.js",
         "analysis": "analysis=on npm run build",
         "debug": "node --inspect --debug-brk node_modules/.bin/webpack",
         "debug-dev": "DEV_SERVER=on node --inspect --debug-brk node_modules/.bin/webpack-dev-server",
