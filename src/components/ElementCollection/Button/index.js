@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { SketchPicker } from 'react-color'
 import './index.scss'
+import './a.css'
 export default class Button extends Component {
   static canBroadcast = true;
 
@@ -18,6 +19,9 @@ export default class Button extends Component {
       if(typeof(broadcast)==='function') broadcast(eventKey, 'fdfjdlfjdlsajfldsajfdls');
   }
   renderButtons() {
+      import('recharts'/* webpackChunkName = "myChunkName" */).then(dnd => {
+          console.log(dnd)
+      })
       let {buttons} = this.props.data;
       if(buttons.length === 0) return <div>No button</div>
       return buttons.map((item, index) => {
