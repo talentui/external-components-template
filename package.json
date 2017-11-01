@@ -1,8 +1,9 @@
 {
-    "name": "upaas-component-demo3",
-    "version": "2.1.0",
-    "description": "page-builder组件开发 调试 打包 dll发版项目",
+    "name": "{{ name }}",
+    "version": "{{ version }}",
+    "description": "{{ description }}",
     "main": "index.js",
+    "author": "{{ author }}",
     "scripts": {
         "start": "friendly=on  dev_server=on webpack-dev-server",
         "build": "rm -rf dist/ && check=on webpack --config ./webpack.library.config.js",
@@ -12,14 +13,10 @@
         "debug-dev": "DEV_SERVER=on node --inspect --debug-brk node_modules/.bin/webpack-dev-server",
         "test": "jest"
     },
-    "repository": "http://gitlab.beisencorp.com/ux/generator-talent-ui-2.0",
-    "author": "UPAAS FED TEAM <liguoming@beisen.com>",
-    "maintainers": [
-        {
-            "name": "lihe3",
-            "email": "lihe3@beisen.com"
-        }
-    ],
+    "repository": {
+        "type": "{{ repository-type }}",
+        "url": "{{ repository-url }}"
+    },
     "license": "MIT",
     "dependencies": {
         "@beisen/beisen-scroll-bar": "^0.0.1-59",
