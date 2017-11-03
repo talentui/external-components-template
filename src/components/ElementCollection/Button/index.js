@@ -19,9 +19,6 @@ export default class Button extends Component {
       if(typeof(broadcast)==='function') broadcast(eventKey, 'fdfjdlfjdlsajfldsajfdls');
   }
   renderButtons() {
-      import('recharts'/* webpackChunkName = "myChunkName" */).then(dnd => {
-          console.log(dnd)
-      })
       let {buttons} = this.props.data;
       if(buttons.length === 0) return <div>No button</div>
       return buttons.map((item, index) => {
