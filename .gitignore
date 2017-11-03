@@ -10,3 +10,4 @@ yarn.lock
 .DS_Store
 /webpack-library-config
 /webpack-config
+yarn-error.log
