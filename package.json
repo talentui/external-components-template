@@ -1,5 +1,5 @@
 {
-    "name": "{{ name }}",
+    "name": "mmm",
     "version": "{{ version }}",
     "description": "{{ description }}",
     "main": "index.js",
@@ -19,9 +19,7 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@beisen/beisen-scroll-bar": "^0.0.1-59",
         "@beisen/grid-page-builder": "^3.0.6",
-        "@beisen/loading": "^0.1.41",
         "@beisen/talent-ui-bootstrap": "^1.0.15",
         "@beisen/talent-ui-helper": "^1.0.6",
         "@talentui/bootstrap-react": "^1.0.0",
@@ -32,17 +30,7 @@
         "@talentui/dll-webpack-config": "^1.0.1",
         "@talentui/webpack-config": "^1.0.0",
         "@talentui/webpack-library-config": "^1.0.1",
-        "immutability-helper": "^2.4.0",
-        "lodash": "^4.17.4",
         "react": "^15.6.2",
-        "react-dom": "^15.6.2",
-        "react-dropzone": "^4.2.1",
-        "redux-actions": "^2.2.1",
-        "redux-logger": "^3.0.6",
-        "redux-thunk": "^2.2.0",
-        "superagent": "^3.7.0",
-        "underscore.string": "^3.3.4",
-        "user": "0.0.0",
         "uuid": "^3.1.0"
     },
     "devDependencies": {
