@@ -1,5 +1,5 @@
 {
-    "name": "{{ name }}",
+    "name": "@talent/test-name",
     "version": "{{ version }}",
     "description": "{{ description }}",
     "main": "index.js",
@@ -29,8 +29,9 @@
         "@talentui/dll-react": "^1.0.0",
         "@talentui/dll-webpack-config": "^1.0.1",
         "@talentui/webpack-config": "^1.0.0",
-        "@talentui/webpack-library-config": "^1.0.1",
+        "@talentui/webpack-library-config": "^1.0.5",
         "react": "^15.6.2",
+        "react-transition-group": "^2.2.1",
         "uuid": "^3.1.0"
     },
     "devDependencies": {
