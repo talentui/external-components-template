@@ -1,5 +1,5 @@
 {
-    "name": "mmm",
+    "name": "{{ name }}",
     "version": "{{ version }}",
     "description": "{{ description }}",
     "main": "index.js",
