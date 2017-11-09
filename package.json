@@ -1,9 +1,9 @@
 {
-    "name": "@talent/tita-component",
-    "version": "{{ version }}",
-    "description": "{{ description }}",
+    "name": "pb-components-templates",
+    "version": "1.0.0",
+    "description": "pageBuilder组件开发的模版项目",
     "main": "index.js",
-    "author": "{{ author }}",
+    "author": "lihe3@beisen.com",
     "scripts": {
         "start": "friendly=on  dev_server=on webpack-dev-server",
         "build": "rm -rf dist/ && check=on webpack --config ./webpack.library.config.js",
@@ -14,8 +14,8 @@
         "test": "jest"
     },
     "repository": {
-        "type": "{{ repository-type }}",
-        "url": "{{ repository-url }}"
+        "type": "git",
+        "url": "https://github.com/talentui/pb-components-templates"
     },
     "license": "MIT",
     "dependencies": {
