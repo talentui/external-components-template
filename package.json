@@ -26,11 +26,11 @@
         "@talentui/component-webpack-config": "^1.0.0",
         "@talentui/dll-ethos": "^1.0.4",
         "@talentui/dll-parser": "^1.0.1",
-        "@talentui/dll-react": "^1.0.0",
+        "@talentui/dll-react": "16.1.0",
         "@talentui/dll-webpack-config": "^1.0.1",
         "@talentui/webpack-config": "^1.0.0",
         "@talentui/webpack-library-config": "^1.0.6",
-        "react": "^15.6.2",
+        "react": "16.1.0",
         "react-transition-group": "^2.2.1",
         "uuid": "^3.1.0"
     },
