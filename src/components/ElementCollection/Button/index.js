@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import { SketchPicker } from 'react-color'
 import './index.scss'
-import './a.css'
 export default class Button extends Component {
   static canBroadcast = true;
 
