@@ -3,7 +3,6 @@ import eLementCollections from './components/ElementCollection/index.js'
 import propsCollections from './components/PropsCollection/index.js'
 import pageTemplate from './components/PageTemplates/index'
 __webpack_public_path__ = `//stnew03.beisen.com/ux/upaas/${process.env.rawName}/release/dist/`//全局变量名
-debugger
 window.pb_umd_components_lists =  window.pb_umd_components_lists || [];
 window.pb_umd_components_lists.push(process.env.library)
 export default {
