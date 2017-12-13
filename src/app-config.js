@@ -11,6 +11,6 @@ const config = {
     middlewares: [],
     afterCreateStore: function(store) {},
     initialState: {},
-    el: 'bsMain'
+    el: 'bs-main'
 };
 export default config;

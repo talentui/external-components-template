@@ -31,7 +31,6 @@ export default class Grid extends Component {
   handleSave = (tubState) => {
     window.localStorage.uibuilder = JSON.stringify(tubState);
     this.state.tubState.setSavedState();
-    debugger;
   }
 
   renderComponent = (Comp, editableData, mergeProps /* */) => {
@@ -39,7 +38,6 @@ export default class Grid extends Component {
   }
 
   genId(data) {
-    console.log(data);
     return v1();
   }
 

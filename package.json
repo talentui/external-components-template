@@ -5,7 +5,7 @@
     "main": "index.js",
     "author": "lihe3@beisen.com",
     "scripts": {
-        "start": "friendly=on  dev_server=on webpack-dev-server",
+        "start": "friendly=on  dev_server=on asset_path=http://stnew03.beisen.com/ux/upaas-portal/release/dist/ webpack-dev-server ",
         "build": "rm -rf dist/ && check=on webpack --config ./webpack.library.config.js",
         "build-prod": "rm -rf dist/ && NODE_ENV=production webpack --config ./webpack.library.config.js",
         "analysis": "analysis=on npm run build",
