@@ -20,7 +20,6 @@
     "license": "MIT",
     "dependencies": {
         "@beisen/grid-page-builder": "4.0.3-beta",
-        "@beisen/talent-ui-bootstrap": "^1.0.15",
         "@talentui/bootstrap-react": "^1.0.0",
         "@talentui/dll-react": "^16.1.1",
         "@talentui/webpack-library-config": "^1.0.9",
