@@ -6,5 +6,5 @@
 
 module.exports = {
   // library:'UPAAS_PB_COMPONENT',//暴露的全局变量 library 
-  dllList: ['@talentui/dll-react', '@talentui/dll-recharts']//组件所依赖的dll list
+  dllList: ['@talentui/dll-react']//组件所依赖的dll list
 }
