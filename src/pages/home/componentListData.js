@@ -15,7 +15,7 @@ export default [
         name:item,
         displayTitle:item,
         id:v1(),
-        gridInitSize:{w:6,h:20}
+        // gridInitSize:{w:6,h:20}
       }
     })
   }
