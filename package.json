@@ -5,7 +5,7 @@
     "main": "index.js",
     "author": "lihe3@beisen.com",
     "scripts": {
-        "start": "friendly=on  dev_server=on webpack-dev-server ",
+        "start": "friendly=on  dev_server=on asset_path=http://stnew03.beisen.com/ux/upaas-portal/release/dist/  webpack-dev-server ",
         "build": "rm -rf dist/ && check=on webpack --config ./webpack.library.config.js",
         "build-prod": "rm -rf dist/ && NODE_ENV=production webpack --config ./webpack.library.config.js",
         "analysis": "analysis=on npm run build",
@@ -19,7 +19,7 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@beisen/grid-page-builder": "4.0.3-beta",
+        "@beisen/grid-page-builder": "^4.0.13-beta",
         "@talentui/bootstrap-react": "^1.0.0",
         "@talentui/dll-react": "^16.1.1",
         "@talentui/webpack-library-config": "^1.0.9",
