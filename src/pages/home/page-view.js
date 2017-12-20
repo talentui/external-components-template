@@ -1,65 +1,81 @@
-import React, { Component } from 'react';
-import GridWorkspace, { TubState } from '@beisen/grid-page-builder';
-// import '@beisen/grid-page-builder/style.css';
-import PageTemplate from '../../components/PageTemplates/index';
-import components from '../../components/ElementCollection';
-import propsComponents from '../../components/PropsCollection';
-import { v1 } from 'uuid';
-import componentListData from './componentListData'
-
-export default class Grid extends Component {
-
-  constructor(props, contents) {
-    super();
-    this.state = { tubState: TubState.create({
-      pageSettings:{
-        title: 'TalentUI-北森',
-        editableData: {},
-        layout: 'grid'
-    }}) };
-    this.availableComponent = this.genAvailableComponent()
-  }
-
-  genAvailableComponent() {
-    return componentListData;
-  }
-
-  handleChange = (tubState) => {
-    this.setState({ tubState })
-  }
-
-  handleSave = (tubState) => {
-    window.localStorage.uibuilder = JSON.stringify(tubState);
-    this.state.tubState.setSavedState();
-  }
-
-  renderComponent = (Comp, editableData, mergeProps /* */) => {
-    return <div>1111<Comp data={editableData} {...mergeProps} /></div>
-  }
-
-  genId(data) {
-    return v1();
-  }
-
-  createComponent(component, data){
-    return component
-  }
-
-  render() {
-    return (
-      <GridWorkspace
-        tubState={this.state.tubState}
-        template={PageTemplate}
-        components={components}
-        propsComponents={propsComponents}
-        availableComponents={this.availableComponent}
-        onChange={this.handleChange}
-        onSave={this.handleSave}
-        genUID={this.genId}
-        onMessage={this.handleMessage}
-        createComponent = {this.createComponent}
-        previewUrl='#/preview'
-        />
-    );
-  }
+/**
+ * paeg-builder编辑态页面
+ */
+import React, { Component } from "react";
+import Workspace, { TubState } from "@beisen/grid-page-builder";
+import { v1 } from "uuid";
+import template from "../../components/PageTemplates";
+import * as services from "../../service";
+import { getQueryString } from "../../utils/index";
+import components from '../../components/ElementCollection'
+import propsComponents from '../../components/PropsCollection'
+export default class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fetchingPage: true,
+            fetchingComp: true,
+            tubState: TubState.create()
+        };
+    }
+    handleChange = tubState => {
+        this.setState({ tubState });
+    };
+    //保存
+    handleSave = tubState => {
+        services.savePage(tubState).then(resp => {
+            if(resp.Code === 200){
+                this.state.tubState.setSavedState();
+            }
+        });
+    };
+    componentDidMount() {
+        this.fetchComp();
+        this.fetchPage();
+    }
+    //获取组件列表
+    fetchComp() {
+        this.getTempAvaliableComponents();
+    }
+    //数据是从后端获取的 组件列表
+    getTempAvaliableComponents = () => {
+        services.getComponentList().then(res => {
+            this.setState({
+                availableComponents: res.OperationObject,
+                fetchingComp: false
+            });
+        });
+    };
+    //获取页面数据
+    fetchPage() {
+        let { pageId } = getQueryString();
+        services.getPage(pageId).then(resp => {
+            if (resp.Code === 200) {
+                document.title = resp.OperationObject.pageSettings.title;//页面title
+                this.setState({
+                    fetchingPage: false,
+                    tubState: this.state.tubState.setDefault(resp.OperationObject)
+                });
+            }
+        });
+    }
+    render() {
+        let {fetchingComp, fetchingPage} = this.state;
+        if (fetchingComp || fetchingPage) return null;
+        let {
+            availableComponents,
+            tubState
+        } = this.state;
+        return (
+            <Workspace
+                tubState={tubState}
+                components={components}
+                propsComponents={propsComponents}
+                availableComponents={availableComponents}
+                onSave={this.handleSave}
+                onChange={this.handleChange}
+                template={template}
+            />
+        );
+    }
 }
