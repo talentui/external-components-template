@@ -1,13 +1,10 @@
 {
-    "extends": "./node_modules/@beisen/talent-ui-helper/lib/config/ts.json",
-    "compilerOptions": {
-      "baseUrl": "./"
-    },
-    "exclude": [
-      "node_modules",
-      "dist",
-      "extras",
-      "webpack"
-    ]
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true
   }
-  
+}
