@@ -5,12 +5,16 @@
     "main": "index.js",
     "author": "lihe3@beisen.com",
     "scripts": {
-        "start": "friendly=on  dev_server=on asset_path=http://stnew03.beisen.com/ux/upaas-portal/release/dist/  webpack-dev-server ",
-        "build": "rm -rf dist/ && check=on webpack --config ./webpack.library.config.js",
-        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack --config ./webpack.library.config.js",
+        "start":
+            "friendly=on  dev_server=on asset_path=http://stnew03.beisen.com/ux/upaas-portal/release/dist/  webpack-dev-server ",
+        "build":
+            "rm -rf dist/ && check=on webpack --config ./webpack.library.config.js",
+        "build-prod":
+            "rm -rf dist/ && NODE_ENV=production webpack --config ./webpack.library.config.js",
         "analysis": "analysis=on npm run build",
         "debug": "node --inspect --debug-brk node_modules/.bin/webpack",
-        "debug-dev": "DEV_SERVER=on node --inspect --debug-brk node_modules/.bin/webpack-dev-server",
+        "debug-dev":
+            "DEV_SERVER=on node --inspect --debug-brk node_modules/.bin/webpack-dev-server",
         "test": "jest"
     },
     "repository": {
@@ -21,12 +25,12 @@
     "dependencies": {
         "@beisen/grid-page-builder": "^4.0.13-beta",
         "@talentui/bootstrap-react": "^1.0.0",
-        "@talentui/dll-react": "^16.1.1",
+        "@talentui/dll-react": "^15.6.3",
         "@talentui/webpack-library-config": "^1.0.9",
         "es6-promise": "^4.1.1",
         "immutable": "^3.8.1",
-        "react": "16.1.0",
-        "react-dom": "16.1.0",
+        "react": "^15.6.0",
+        "react-dom": "^15.6.0",
         "react-redux": "^5.0.6",
         "react-router-dom": "^4.2.2",
         "react-transition-group": "^2.2.0"
