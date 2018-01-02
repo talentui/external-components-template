@@ -1,4 +1,4 @@
-const emptyResp = {
+export const emptyResp = {
     Code: 200,
     HttpCode: 200,
     Messages: null,
