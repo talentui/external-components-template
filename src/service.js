@@ -5,6 +5,7 @@ import request from "./utils/request";
 import { isvId } from "./interface";
 import { getLocalComponentList } from "./utils/index";
 import {emptyResp} from './mock-data'
+import interfaces from './interface'
 
 /**
  * 实际的数据请求方法
