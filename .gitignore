@@ -11,3 +11,4 @@ yarn.lock
 /webpack-library-config
 /webpack-config
 yarn-error.log
+package-lock.json
