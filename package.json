@@ -1,6 +1,7 @@
 {
     "name": "pb-components-templates",
     "version": "1.0.0",
+    "appId":"909",
     "description": "pageBuilder组件开发的模版项目",
     "main": "index.js",
     "author": "lihe3@beisen.com",
