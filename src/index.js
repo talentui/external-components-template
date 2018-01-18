@@ -9,7 +9,7 @@ __webpack_public_path__ = `//stnew03.beisen.com/ux/upaas/${
 window.pb_umd_components_lists = window.pb_umd_components_lists || [];
 window.pb_umd_components_lists.push(process.env.library);
 export default {
-    eLementCollections: prefixAdder(eLementCollections), //所有的组件
-    propsCollections: prefixAdder(propsCollections), //所有的属性组件
-    pageTemplate: prefixAdder(pageTemplate) //页面模版组件
+    eLementCollections: eLementCollections, //所有的组件
+    propsCollections: propsCollections, //所有的属性组件
+    pageTemplate: pageTemplate //页面模版组件
 };
