@@ -6,7 +6,7 @@ import interfaces from "./interface.js";
 import { isvId } from "./interface";
 import { getQueryString, componentTransfer } from "./utils/index";
 
-const mock = false;
+const mock = window.location.hostname == 'localhost';
 /**
  * 从url中读取参数配置 pageCode pageId(可能废除) isDev
  */

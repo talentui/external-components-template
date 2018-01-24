@@ -1,3 +1,5 @@
+import components from "../lib/index";
+
 const emptyResp = {
     Code: 200,
     HttpCode: 200,
@@ -12,18 +14,13 @@ export const componentList = Object.assign({}, emptyResp, {
             name: "TestDemo",
             title: "测试应用",
             id: "1231231",
-            components: [
-                {
-                    name: "Button",
-                    title: "按钮",
-                    id: "123123123"
-                },
-                {
-                    name: "MyChart",
-                    title: "图表",
-                    id: "111"
-                }
-            ]
+            components: Object.keys(components).map(item => {
+                return {
+                    name: item,
+                    title: item,
+                    id: Date.now()
+                };
+            })
         }
     ]
 });

@@ -25,7 +25,7 @@ export const getCurPageTemplate = ({ page }) => {
     let templates = innerTemplates.pbTemplates;
     let { template, parts } = page.pageSettings;
     if (templates[template]) return templates[template](PARTS_MAP[parts]);
-    return templates["Honour"](PARTS_MAP[parts]); //返回一个默认的
+    return templates["HomePage"](PARTS_MAP[parts]); //返回一个默认的
 };
 //得到本地的组件
 export const mergeComponents = () => {
