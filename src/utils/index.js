@@ -1,4 +1,6 @@
-import components from "../components/ElementCollection/index";
+import { PARTS_MAP } from "../constants";
+import innerTemplates from "@talentui/page-templates";
+import components from '../../lib/index';
 export function getQueryString() {
     //获取Url上的参数，以{}返回
     let hash = location.hash;
@@ -18,24 +20,30 @@ export function getQueryString() {
     }
     return queryObject;
 }
-export function getLocalComponentList() {
-    return {
-        Code: 200,
-        HttpCode: 200,
-        Messages: null,
-        MessagesList: [],
-        OperationObject: [{
-            name: "TestDemo",
-            title: "本地开发调试组件",
-            id: "1231231",
-            components: Object.keys(components).map(name =>{
-                    return {
-                        name: name,
-                        title: name,
-                        id: name
+//依据页面信息获取当前页面所用的页面模版
+export const getCurPageTemplate = ({ page }) => {
+    let templates = innerTemplates.pbTemplates;
+    let { template, parts } = page.pageSettings;
+    if (templates[template]) return templates[template](PARTS_MAP[parts]);
+    return templates["Honour"](PARTS_MAP[parts]); //返回一个默认的
+};
+//得到本地的组件
+export const mergeComponents = () => {
+   return components;
+};
+//遍历组件列表，将普通iframe组件使用本地渲染
+export const componentTransfer = apps => {
+    apps.map(list => {
+        list.components.map(comp => {
+            if (comp.displayMode === 2) {
+                let rawData = comp.editableData;
+                Object.assign(comp, {
+                    name: "CommonIframe",
+                    data: {
+                        url: comp.url
                     }
-                })
-        }],
-        OperationResult: true
-    };
-}
+                });
+            }
+        });
+    });
+};

@@ -4,14 +4,18 @@
 import React, { Component } from "react";
 import Workspace, { TubState } from "@beisen/grid-page-builder";
 import { v1 } from "uuid";
-import template from "../../components/PageTemplates";
 import * as services from "../../service";
-import { getQueryString } from "../../utils/index";
-import components from '../../components/ElementCollection'
-import propsComponents from '../../components/PropsCollection'
+import { getQueryString, getCurPageTemplate, mergeComponents } from "../../utils/index";
+import { PARTS_MAP, BORDR_STYLE_MAP, GRID_MARGIN_MAP } from "../../constants";
+
 export default class App extends Component {
     constructor(props) {
         super(props);
+        // let components = mergeComponents();
+        // this.eLementCollections = eLementCollections;
+        // this.propsCollections = propsCollections;
+        // this.templates = templates; //所有的模版集合
+        this.curTemplate = null; //当前页面所用的模版
         this.state = {
             fetchingPage: true,
             fetchingComp: true,
@@ -23,58 +27,77 @@ export default class App extends Component {
     };
     //保存
     handleSave = tubState => {
-        services.savePage(tubState).then(resp => {
-            if(resp.Code === 200){
+        services.savePage({ tubState }).then(resp => {
+            if (resp.Code === 200) {
                 this.state.tubState.setSavedState();
             }
         });
     };
     componentDidMount() {
-        this.fetchComp();
         this.fetchPage();
-    }
-    //获取组件列表
-    fetchComp() {
         this.getTempAvaliableComponents();
     }
-    //数据是从后端获取的 组件列表
-    getTempAvaliableComponents = () => {
-        services.getComponentList().then(res => {
-            this.setState({
-                availableComponents: res.OperationObject,
-                fetchingComp: false
-            });
-        });
-    };
     //获取页面数据
     fetchPage() {
-        let { pageId } = getQueryString();
-        services.getPage(pageId).then(resp => {
-            if (resp.Code === 200) {
-                document.title = resp.OperationObject.pageSettings.title;//页面title
+        services.getPage().then(resp => {
+            let { Code, OperationObject } = resp;
+            if (Code === 200) {
+                document.title = OperationObject.pageSettings.title; //页面title
+                this.curTemplate = getCurPageTemplate({
+                    page: resp.OperationObject
+                });
+                let {
+                    componentFrame,
+                    componentSpacing
+                } = OperationObject.pageSettings;
+                this.componentSpacing = componentSpacing;
+                this.componentFrame = componentFrame;
                 this.setState({
                     fetchingPage: false,
-                    tubState: this.state.tubState.setDefault(resp.OperationObject)
+                    tubState: this.state.tubState.setDefault(OperationObject)
                 });
             }
         });
     }
+    //数据是从后端获取的 组件列表
+    getTempAvaliableComponents = () => {
+        services.getComponentList().then(res => {
+            this.availableComponents = res.OperationObject;
+            this.setState({
+                fetchingComp: false
+            });
+        });
+    };
     render() {
-        let {fetchingComp, fetchingPage} = this.state;
+        
+        let { fetchingComp, fetchingPage, tubState } = this.state;
         if (fetchingComp || fetchingPage) return null;
         let {
+            eLementCollections,
+            propsCollections,
+            pageTemplate,
             availableComponents,
-            tubState
-        } = this.state;
+            curTemplate
+        } = this;
         return (
             <Workspace
+                defaultProps={{
+                    component: {
+                        __border__: BORDR_STYLE_MAP[this.componentFrame]
+                    },
+                    page: {
+                        __gridItemMargin__:
+                            GRID_MARGIN_MAP[this.componentSpacing]
+                    }
+                }}
                 tubState={tubState}
-                components={components}
-                propsComponents={propsComponents}
+                components={mergeComponents()}
+                propsComponents={propsCollections}
                 availableComponents={availableComponents}
                 onSave={this.handleSave}
                 onChange={this.handleChange}
-                template={template}
+                template={curTemplate}
+                previewUrl={"?#preview"}
             />
         );
     }

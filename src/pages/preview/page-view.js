@@ -1,38 +1,36 @@
-
-import React, {Component, PropTypes} from 'react';
-import Elements from '../../components/ElementCollection';
-// import FreeLayout from '../../components/PageTemplates/FreeLayout'
-import PageTemplate from '../../components/PageTemplates/index';
-import {Viewer, TubState} from '@beisen/grid-page-builder';
-// import '@beisen/grid-page-builder/style.css';
-
-export default class View extends Component{
-    constructor(props){
-        super(props)
-        let data = JSON.parse(window.localStorage._tubState)
+import React, { Component } from "react";
+import { TubState, Viewer } from "@beisen/grid-page-builder";
+import {getCurPageTemplate, mergeComponents} from '../../utils/index'
+export default class Preview extends Component {
+    constructor(props, contents) {
+        super(props);
+        let data = JSON.parse(window.localStorage._tubState);
+        let {
+            eLementCollections,
+            propsCollections,
+            templates
+        } = mergeComponents();
+        this.eLementCollections = eLementCollections;
+        this.curTemplate = getCurPageTemplate({
+            page: data
+        });
         this.state = {
             tubState: TubState.create(data)
-        }
+        };
     }
 
-    renderComponent = (Comp,data, mergeProps) => {
-        
-        return <div><Comp data={data} {...mergeProps}/></div>
-        
-    }
+    handleChange = tubState => {
+        this.setState({ tubState });
+    };
 
-    componentWillReceiveProps(nextProps){
-        this.setState({
-            tubState: tubState.setContent(nextProps.data)
-        });
-    }
-    
-    render(){
-        return <Viewer
+    render() {
+        return (
+            <Viewer
                 tubState={this.state.tubState}
-                components={Elements} 
-                onChange={(tubState) => {this.setState({tubState})}}
-                template={PageTemplate}
+                components={this.eLementCollections}
+                template={this.curTemplate}
+                onChange={this.handleChange}
             />
+        );
     }
 }

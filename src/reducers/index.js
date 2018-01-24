@@ -1,3 +1,3 @@
-export default ()=>{
-    return ''
+export default function(){
+    return 0;
 }

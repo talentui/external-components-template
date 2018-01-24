@@ -4,7 +4,7 @@
  * 
  * **/
 import { v1 } from 'uuid';
-import ElementCollection from '../../components/ElementCollection/index'
+import ElementCollection from '../../../lib/index'
 let componentsKeys = Object.keys(ElementCollection);
 export default [
   {
@@ -13,7 +13,7 @@ export default [
     components: componentsKeys.map(item =>  {
       return {
         name:item,
-        displayTitle:item,
+        title:item,
         id:v1()
       }
     })
