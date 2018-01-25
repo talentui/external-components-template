@@ -6,8 +6,6 @@ module.exports = require("@talentui/webpack-config")({
     dllList: ["@talentui/dll-react"],
     moduleScope: path.resolve(__dirname, "./src"),
     language: "mixed", //可选，default 'js' 可选 'ts', 'mixed',
-    transformInclude: [],
-    transformExclude: [],
     alias: {
         "&": path.resolve(__dirname, "./src"),
         _: "@talentui/external-component-template-core"
