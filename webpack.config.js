@@ -1,6 +1,6 @@
 const path = require("path");
 module.exports = require("@talentui/webpack-config")({
-    entry: path.resolve(__dirname, "./src/app.js"),
+    entry: path.resolve(__dirname, "./core/src/app.js"),
     port: 3000,
     hostPage: path.resolve(__dirname, "index.html"),
     dllList: ["@talentui/dll-react"],
@@ -9,6 +9,7 @@ module.exports = require("@talentui/webpack-config")({
     transformInclude: [],
     transformExclude: [],
     alias:{
-        '&':'./src'
+        '&':'./src',
+        '_':path.resolve(__dirname, './core/')
     }
 });

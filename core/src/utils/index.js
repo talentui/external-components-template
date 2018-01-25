@@ -1,6 +1,6 @@
 import { PARTS_MAP } from "../constants";
 import innerTemplates from "@talentui/page-templates";
-import components from '../../lib/index';
+import components from '../../../src/index';
 export function getQueryString() {
     //获取Url上的参数，以{}返回
     let hash = location.hash;

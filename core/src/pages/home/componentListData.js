@@ -4,7 +4,7 @@
  * 
  * **/
 import { v1 } from 'uuid';
-import ElementCollection from '../../../lib/index'
+import ElementCollection from '../../../src/index'
 let componentsKeys = Object.keys(ElementCollection);
 export default [
   {

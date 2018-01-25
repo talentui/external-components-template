@@ -1,4 +1,4 @@
-import components from "../lib/index";
+import components from "../../src/index";
 
 const emptyResp = {
     Code: 200,
