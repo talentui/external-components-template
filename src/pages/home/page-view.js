@@ -79,6 +79,7 @@ export default class App extends Component {
             availableComponents,
             curTemplate
         } = this;
+        let a  = mergeComponents();
         return (
             <Workspace
                 defaultProps={{
@@ -92,7 +93,7 @@ export default class App extends Component {
                 }}
                 tubState={tubState}
                 components={mergeComponents()}
-                propsComponents={propsCollections}
+                // propsComponents={propsCollections}
                 availableComponents={availableComponents}
                 onSave={this.handleSave}
                 onChange={this.handleChange}

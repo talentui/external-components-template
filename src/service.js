@@ -6,7 +6,7 @@ import interfaces from "./interface.js";
 import { isvId } from "./interface";
 import { getQueryString, componentTransfer } from "./utils/index";
 
-const mock = window.location.hostname == 'localhost';
+const mock = window.location.hostname == "localhost";
 /**
  * 从url中读取参数配置 pageCode pageId(可能废除) isDev
  */
@@ -25,35 +25,7 @@ const mockDecorator = fn => {
  * 实际的数据请求方法
  */
 export const getComponentList = () => {
-    if (mock) {
-        return new Promise(resolve =>
-            resolve(interfaces.getComponentList.mock)
-        );
-    }
-    return new Promise(resolve => {
-        request(
-            `${
-                interfaces.getComponentList.path
-            }pageId=${pageId}&pageCode=${pageCode}`,
-            {
-                method: "GET"
-            }
-        ).then(res => {
-            //数据处理
-            //要是是数字类型的，后端数据存储满足不了，暂时先在这里做兼容
-            res.OperationObject.map(item => {
-                item.components.map(comp => {
-                    if (comp.gridInitSize) {
-                        let { w, h } = comp.gridInitSize;
-                        comp.gridInitSize.w = parseInt(w);
-                        comp.gridInitSize.h = parseInt(h);
-                    }
-                });
-            });
-            componentTransfer(res.OperationObject);
-            resolve(res);
-        });
-    });
+    return new Promise(resolve => resolve(interfaces.getComponentList.mock));
 };
 export const savePage = ({ tubState }) => {
     if (mock) {

@@ -24,7 +24,7 @@
         "@beisen/common-func": "0.0.7",
         "@beisen/common-mount": "0.0.37",
         "@beisen/es6-promise-debounce": "0.0.3",
-        "@beisen/grid-page-builder": "^4.0.13-beta",
+        "@beisen/grid-page-builder": "^4.0.1-nexter",
         "@beisen/loading": "^0.1.41",
         "@beisen/pop-layer": "0.0.56",
         "@beisen/search": "^0.1.67",
