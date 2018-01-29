@@ -1,4 +1,4 @@
-import Button from '&/Button'
+import Button from '&/Texter'
 export default {
-    Button
+    Texter
 }
