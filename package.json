@@ -50,7 +50,7 @@
         "react-transition-group": "^2.2.0"
     },
     "devDependencies": {
-        "@talentui/external-components-bootstrap": "^1.0.6",
+        "@talentui/external-components-bootstrap": "^1.0.7",
         "@talentui/jest-config": "^1.0.0",
         "@talentui/umd-module-webpack-config": "^1.1.1",
         "@talentui/webpack-config": "^1.3.6",
