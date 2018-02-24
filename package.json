@@ -20,7 +20,7 @@
         "@beisen/common-func": "0.0.7",
         "@beisen/common-mount": "0.0.37",
         "@beisen/es6-promise-debounce": "0.0.3",
-        "@beisen/grid-page-builder": "^4.2.0-nexter",
+        "@beisen/grid-page-builder": "^4.3.2-nexter",
         "@beisen/loading": "^0.1.41",
         "@beisen/pop-layer": "0.0.56",
         "@beisen/search": "^0.1.67",

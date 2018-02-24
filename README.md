@@ -11,7 +11,7 @@ sudo yarn install @talentui/cli
 npm install 
 npm start
 ```
-启动本地代理，打开pageBuilder的一个页面，即可看到本地开发的组件
+启动本地代理`@talentui/dev-server`，打开pageBuilder的一个页面，即可看到本地开发的组件
 
 # 开发
 
