@@ -6,7 +6,7 @@
     "main": "index.js",
     "author": "lihe3@beisen.com",
     "scripts": {
-        "start": "friendly=on  dev_server=on asset_path=http://stnew03.beisen.com/ux/upaas-portal/release/dist/  webpack-dev-server --config ./node_modules/@talentui/external-components-bootstrap/webpack.config.js ",
+        "start": "friendly=on  dev_server=on asset_path=http://stnew03.beisen.com/ux/page-builder/release/dist/  webpack-dev-server --config ./node_modules/@talentui/external-components-bootstrap/webpack.config.js ",
         "build": "rm -rf dist/ && check=on webpack --config ./node_modules/@talentui/external-components-webpack-config/webpack.config.js",
         "build-prod": "rm -rf dist/ && NODE_ENV=production webpack --config ./node_modules/@talentui/external-components-webpack-config/webpack.config.js"
     },
