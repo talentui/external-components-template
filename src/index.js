@@ -1,2 +1,6 @@
-import Button from '&/Button'
-export default Button
+import React from 'react'
+export default class Demo extends React.Component{
+    render(){
+        return <div>demo component</div>
+    }
+}
