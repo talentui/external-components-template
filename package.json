@@ -5,6 +5,7 @@
     "description": "pageBuilder组件开发的模版项目",
     "main": "index.js",
     "author": "lihe3@beisen.com",
+    "dllList":["@talentui/dll-react"],
     "scripts": {
         "start": "friendly=on  dev_server=on asset_path=http://stnew03.beisen.com/ux/page-builder/release/dist/  webpack-dev-server --config ./node_modules/@talentui/external-components-bootstrap/webpack.config.js ",
         "build": "rm -rf dist/ && check=on webpack --config ./node_modules/@talentui/external-components-webpack-config/webpack.config.js",
@@ -52,7 +53,7 @@
     "devDependencies": {
         "@talentui/external-component-registry": "^1.0.2",
         "@talentui/external-components-bootstrap": "^1.4.9",
-        "@talentui/external-components-webpack-config": "^1.1.0",
+        "@talentui/external-components-webpack-config": "^1.1.0-beta",
         "@talentui/jest-config": "^1.0.0",
         "@talentui/webpack-config": "^1.3.6",
         "@types/enzyme": "^2.8.8",
