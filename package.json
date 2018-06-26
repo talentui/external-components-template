@@ -8,7 +8,9 @@
     "scripts": {
         "start": "friendly=on  dev_server=on asset_path=http://stnew03.beisen.com/ux/page-builder/release/dist/  webpack-dev-server --config ./node_modules/@talentui/external-components-bootstrap/webpack.config.js ",
         "build": "rm -rf dist/ && check=on webpack --config ./node_modules/@talentui/external-components-webpack-config/webpack.config.js",
-        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack --config ./node_modules/@talentui/external-components-webpack-config/webpack.config.js"
+        "build-prod": "rm -rf dist/ && NODE_ENV=production webpack --config ./node_modules/@talentui/external-components-webpack-config/webpack.config.js",
+        "lib": "node node_modules/@beisen/gulp-lib/bin/index.js",
+        "examples": "node node_modules/@beisen/storybook-lib/bin/index.js"
     },
     "repository": {
         "type": "git",
@@ -43,7 +45,9 @@
         "react-dom": "^15.6.0",
         "react-redux": "^5.0.6",
         "react-router-dom": "^4.2.2",
-        "react-transition-group": "^2.2.0"
+        "react-transition-group": "^2.2.0",
+        "classnames": "^2.2.5",
+        "lodash": "^4.17.10"
     },
     "devDependencies": {
         "@talentui/external-component-registry": "^1.0.2",
@@ -64,6 +68,8 @@
         "tslint": "^5.7.0",
         "typescript": "^2.6.2",
         "webpack": "^3.6.0",
-        "webpack-dev-server": "^2.11.1"
+        "webpack-dev-server": "^2.11.1",
+        "@beisen/gulp-lib": "0.0.12",
+        "@beisen/storybook-lib": "^0.1.31"
     }
 }
